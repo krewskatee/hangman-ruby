@@ -15,8 +15,12 @@ end
 
 def populate(array)
   word_guessed = []
-  array.each do
-    word_guessed << "X"
+  array.each do |element|
+    if element == " "
+      word_guessed << " "
+    else
+      word_guessed << "X"
+    end
   end
   word_guessed
 end
@@ -25,7 +29,7 @@ failed_attempts = 0
 letters_guessed = []
 game_over = false
 
-puts "Please enter word for hangman"
+puts "Please enter word or phrase for hangman"
 word = gets.chomp.upcase
 
 word_array = word.split("")
@@ -42,10 +46,10 @@ while game_over == false
     else
       letters_guessed << letter
       if word_array.include?(letter)
-        puts "Yes the word has that letter"
+        puts "Yes the word/phrase has that letter"
         word_guessed = replace(word_array, letter, word_guessed)
       else
-        puts "Sorry, that letter does not exist in the word"
+        puts "Sorry, that letter does not exist in the word/phrase."
         failed_attempts += 1
       end
     end
