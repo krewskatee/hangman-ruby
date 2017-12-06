@@ -64,7 +64,6 @@ while game_over == false
     end
   end
   puts "Game status:"
-  p word_array
   p word_guessed
 
 end
